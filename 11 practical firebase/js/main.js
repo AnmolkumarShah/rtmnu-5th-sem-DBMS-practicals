@@ -1,12 +1,12 @@
   var firebaseConfig = {
-    apiKey: "AIzaSyDIEHoeKKwBGA0Q36ztCp8_0eUsdSHiMW0",
-    authDomain: "fir-connect-97adb.firebaseapp.com",
-    databaseURL: "https://fir-connect-97adb-default-rtdb.firebaseio.com",
-    projectId: "fir-connect-97adb",
-    storageBucket: "fir-connect-97adb.appspot.com",
-    messagingSenderId: "29213203484",
-    appId: "1:29213203484:web:bf887a81adc0a1119693d9",
-    measurementId: "G-YQ8P74PYVS"
+    apiKey: "your key",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+    measurementId: ""
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
