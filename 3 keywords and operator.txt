@@ -1,0 +1,74 @@
+create table emp(
+    eid number(10),
+    ename varchar2(20),
+    company_name varchar2(20),
+    sal number(5),
+    commission number(4)
+);
+------------------ (1)
+
+
+select ename
+from emp
+where company_name like 'T%';
+------------------ (3) ---- T in place of p
+
+select company_name
+from emp
+where company_name like 'I%';
+------------------- (4) ---- I in place of a
+
+select city
+from emp
+where city like '%a';
+------------------- (5)
+
+select ename
+from emp
+where ename like '%e%';
+------------------- (6)
+
+select company_name
+from emp
+where company_name not like 'I%';
+------------------- (7) -- I in place of N
+
+select city
+from emp
+where city like 'N_%pur';
+------------------- (8)
+
+select ename
+from emp
+where city in ('Nagpur','Mumbai','Pune');
+----------------- (9)
+
+select eid
+from emp
+where (sal between 30000 and 40000) and city = 'Nagpur';
+------------------ (10)
+
+select ename
+from emp
+where commission is not null;
+------------------- (11)
+
+select ename
+from emp
+where commission is null;
+------------------- (12)
+
+select sum(nvl(sal,0))
+from emp;
+--------------- (13)
+
+select *
+from emp
+where eid in (1,2,3);
+----------------- (14) --- 1,2,3 in place of 11,22,33
+
+select ename
+from emp
+where company_name like '%t' and sal > 50000;
+-------------------(15)
+

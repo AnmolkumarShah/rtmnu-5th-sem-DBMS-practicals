@@ -1,0 +1,65 @@
+AIM : Study & Implementation of Subquery in SQL
+
+create table customer(
+    cid number,
+    cname varchar2(20),
+    city varchar2(20),
+    address varchar2(20),
+    contact_number number
+);
+
+insert into customer
+values (10,'Kunti Shah','Nagpur','Nagpur',8208371942);
+
+create table orders(
+    oid number,
+    cid number,
+    oamt number(7,2),
+    odate date
+);
+
+insert into orders
+values(1010,4,3000.06,'31-dec-2020');
+
+
+select *
+from customer
+where cid = (
+    select cid
+    from orders
+    where oamt >= (
+        select max(oamt)
+        from orders
+    )
+);
+
+
+create table customer1 as select * from customer where 1=0;
+insert into customer1
+    select *
+    from customer;
+    
+
+  
+update orders
+set oamt = oamt + (oamt * 20)
+where cid = (
+    select cid
+    from customer
+    where cname = 'Ajay Shah'
+);
+
+delete 
+from customer
+where cid in (
+    select cid
+    from orders
+    where oamt > 1000
+);
+
+
+
+
+
+
+

@@ -1,0 +1,98 @@
+create table emp(
+    eid number(4),
+    ename varchar2(20),
+    cname varchar2(20),
+    city varchar2(10),
+    sal number(6),
+    comm number
+);
+
+update emp
+set eid=5
+where ename = 'Naman Shah';
+
+alter table emp
+drop(comm);
+
+insert into emp
+values(13,'Sonam Iyyer','Syntel','Pune',55000);
+
+select avg(sal)
+from emp
+where cname='Infosis';
+
+select cname,count(eid) Number_of_emp
+from emp
+where cname='Syntel'
+group by cname;
+
+select distinct sal from emp e1
+where (
+    select count(distinct sal) from emp e2
+    where e1.sal <= e2.sal
+)=2;
+
+select distinct sal from emp e1
+where(
+    select count(distinct sal) from emp e2
+    where e1.sal >= e2.sal
+)=3;
+
+__________________________________
+select cname,max(sal)
+from emp
+group by cname;
+___________________________
+
+select cname,sum(sal)
+from emp
+having cname='Infosis'
+group by cname;
+
+select cname,max(sal) as highest,min(sal) as lowest,avg(sal) as average,sum(sal) as total
+from emp
+group by cname;
+
+select city,count(eid)
+from emp
+having city='Pune'
+group by city;
+
+select count(eid)
+from emp
+where sal > 50000 and city='Pune';
+
+select sal,rownum
+from emp
+order by sal desc;
+
+select cname,count(eid)
+from emp
+group by cname;
+
+select cname,max(sal) as Max_Amount
+from emp
+group by cname;
+
+select cname,sum(sal) as Total_Amount
+from emp
+group by cname;
+
+select cname,avg(sal) as Average_Amount
+from emp
+group by cname;
+
+select cname,avg(sal) as Average_Amount
+from emp
+having avg(sal) > 20000
+group by cname;
+
+select cname,sum(sal) as Total_Amount
+from emp
+having sum(sal) > 25000
+group by cname;
+
+select cname,max(sal) as Max_Amount
+from emp
+having max(sal) > 50000
+group by cname;

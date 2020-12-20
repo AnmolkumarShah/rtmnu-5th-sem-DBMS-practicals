@@ -1,0 +1,26 @@
+AIM : Study & Implementation of Integrity constraints
+
+create table student(
+    rno number constraint p_k primary key,
+    name varchar2(20) constraint n_n not null,
+    dept varchar2(10) default 'unknown'
+);
+
+drop table game;
+
+
+create table game(
+    Rno number constraint g_p_k primary key,
+    game varchar2(50),
+    dept varchar2(10)
+);
+
+create table feespaid(
+    rollno number,
+    Roomno number,
+    dept varchar2(10),
+    amt number(4,2) constraint c_k check (amt > 5000),
+    constraint f_p_k primary key(rollno,Roomno),
+    constraint f_f_k_r foreign key (rollno) referance student(rno),
+    constraint f_f_k_R foreign key (Roomno) referance game(Rno) 
+);

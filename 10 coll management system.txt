@@ -1,0 +1,172 @@
+create table hostel(
+    id number,
+    name varchar2(20),
+    addr varchar2(40),
+    primary key(id)
+);
+
+create table course(
+    course_no number,
+    name varchar2(20),
+    no_credit number,
+    primary key(course_no)
+);
+
+create table department(
+    dept_no number,
+    name varchar2(20),
+    primary key(dept_no)
+);
+
+create table student(
+    id number,
+    f_name varchar2(10),
+    l_name varchar2(10),
+    primary key(id),
+    dept_no number,
+    course_no number,
+    hostel_id number,
+    foreign key(dept_no) references department(dept_no),
+    foreign key(course_no) references course(course_no),
+    foreign key(hostel_id) references hostel(id)
+);
+
+create table teacher(
+    id number,
+    f_name varchar2(10),
+    l_name varchar2(10),
+    primary key(id),
+    dept_no number,
+    foreign key(dept_no) references department(dept_no)
+);
+
+create table student_phone(
+    s_id number,
+    phone number,
+    foreign key(s_id) references student(id),
+    primary key(s_id,phone)
+);
+
+create table teacher_phone(
+    t_id number,
+    phone number,
+    foreign key(t_id) references teacher(id),
+    primary key(t_id,phone)
+);
+
+create table hostel_phone(
+    h_id number,
+    phone number,
+    foreign key(h_id) references hostel(id),
+    primary key(h_id,phone)
+);
+
+insert into department
+values(1,'CSE');
+
+insert into department
+values(2,'IT');
+
+insert into department
+values(3,'Mechanical');
+
+insert into department
+values(4,'ETC');
+
+insert into course
+values(01,'Computer course',5);
+
+insert into course
+values(02,'Information course',4);
+
+insert into course
+values(03,'Machine course',10);
+
+create sequence t1
+start with 100
+increment by 1
+nocycle
+nocache;
+
+create sequence s1
+start with 200
+increment by 1
+nocycle
+nocache;
+
+insert into teacher
+values(t1.nextval,'Ram','Sharma',1);
+
+insert into teacher
+values(t1.nextval,'Animesh','Tayal',1);
+
+create table teacher_course(
+    t_id number,
+    c_id number,
+    foreign key(t_id) references teacher(id),
+    foreign key(c_id) references course(course_no)
+);
+
+insert into teacher_course
+values(101,1);
+
+insert into teacher_course
+values(100,1);
+
+insert into teacher_course
+values(102,3);
+
+insert into teacher_course
+values(104,2);
+
+insert into teacher_course
+values(103,3);
+
+select *
+from hostel;
+
+insert into hostel
+values(10,'Jainam','nagpur somewhere');
+
+insert into hostel
+values(30,'Jai Hostel','nagpur somewhere');
+
+select *
+from course;
+
+select *
+from department;
+
+insert into student
+values(s1.nextval,'Anmol','Shah',1,1,10);
+
+insert into student
+values(s1.nextval,'Jatin','Vish',1,1,20);
+
+insert into student
+values(s1.nextval,'Harshit','Barde',1,1,30);
+
+insert into student
+values(s1.nextval,'Jayne','Yadav',1,1,20);
+
+insert into student
+values(s1.nextval,'Amin','Khan',2,2,10);
+
+insert into student
+values(s1.nextval,'Aman','Singh',3,1,30);
+
+select *
+from student;
+
+select *
+from teacher;
+
+select *
+from hostel;
+
+select *
+from course;
+
+select *
+from department;
+

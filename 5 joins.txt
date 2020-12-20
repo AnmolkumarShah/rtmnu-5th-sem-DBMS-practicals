@@ -1,0 +1,37 @@
+create table customer(
+    cid number,
+    cname varchar2(20),
+    addr varchaR2(20)
+);
+
+INSERT into customer
+values(10,'Mansi Shah','Mansi Address');
+
+create table OrderTable(
+    oid number,
+    cid number,
+    amt number
+);
+
+INSERT into OrderTable
+values(1010,7,3500);
+
+
+select *
+from OrderTable;
+
+select oid,cname,amt 
+from customer c inner join OrderTable o
+on c.cid = o.cid;
+
+select oid,cname,amt 
+from customer c left join OrderTable o
+on c.cid = o.cid;
+
+select oid,cname,amt 
+from customer c right join OrderTable o
+on c.cid = o.cid;
+
+select oid,cname,amt 
+from customer c full join OrderTable o
+on c.cid = o.cid;

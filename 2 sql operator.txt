@@ -1,0 +1,122 @@
+Anmolkumar Shah
+CS18061
+-----------------------------------------------------------------
+practical 2
+----------------------------------------------------------------
+
+create table Employees(
+    id int primary key,
+    name varchar2(20),
+    city varchar2(20),
+    salary number(10,2)
+);
+
+insert into Employees
+values(1,'Anmol Shah','Pune',50000);
+
+insert into Employees
+values(2,'Saloni Shah','Mumbai',10000);
+
+insert into Employees
+values(3,'Naman Shah','Nagpur',7000);
+
+insert into Employees
+values(4,'Mona Shah','Pune',30000);
+
+insert into Employees
+values(5,'Arohi Shah','Nagpur',30000);
+
+insert into Employees
+values(6,'Sumit Shah','Pune',12000);
+
+insert into Employees
+values(7,'Nakul Shah','Nagpur',17000);
+
+insert into Employees
+values(8,'Aman Shah','Gandhi Nagar',35000);
+
+insert into Employees
+values(9,'Mansi Shah','Lucknow',9000);
+
+insert into Employees
+values(10,'Sweta Shah','Pune',10000);
+
+
+select * 
+from Employees;
+
+select *
+from Employees
+where salary > 25000; 
+-- 2 que
+
+select *
+from Employees
+where id < 6;  
+-- 6 in place of 20 -- 3 que
+
+select *
+from Employees
+where salary > 10000 and city = 'Nagpur';
+-- 10,000 in place of 35,000 -- 4 que
+
+select *
+from Employees
+where salary != 10000 and city != 'Nagpur';
+-- 5 que
+
+select *
+from Employees
+where city in ('Nagpur','Mumbai','Amravati');
+-- 6 que
+
+select *
+from Employees
+where salary <= 50000 and (city = 'Nagpur' or city = 'Pune');
+-- 7 que
+
+select *
+from Employees
+where (salary > 30000 and salary < 60000) and city != 'Pune';
+-- 8 que
+
+select *
+from Employees
+where salary between 10000 and 20000;
+-- 9 que
+
+select *
+from Employees
+where city not in ('Pune','Nagpur') and salary > 25000;
+-- 10 que
+
+select *
+from Employees
+order by id desc;
+-- 11 que
+
+select * 
+from Employees
+order by name;
+-- 12 que
+
+select *
+from Employees
+order by salary desc;
+-- 13 que
+
+select distinct city
+from Employees;
+-- 14 que
+
+select name,salary
+from Employees
+where salary between 15000 and 20000;
+-- 15 que
+
+select id,name
+from Employees
+order by name desc;
+-- 16 que
+
+drop table Employees;

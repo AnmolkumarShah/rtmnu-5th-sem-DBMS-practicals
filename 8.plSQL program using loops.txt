@@ -1,0 +1,31 @@
+AIM: Write a PL/SQL Program to find factorial of given number
+
+declare
+    factorial number(4):= 1;
+    i number(2);
+    num number:= 5;
+begin
+    <<for_loop>>
+    for i in 1..num loop
+        factorial := factorial * i;
+    end loop for_loop;
+    dbms_output.put_line('Factorial of ' || num || ' is ' || factorial);
+end;
+
+------------------------------------------------------------------------------
+AIM: Write a PL/SQL Program to find fabonnaci series of given numbers
+
+declare
+    a number(2):= -1;
+    b number(2):= 1;
+    c number(2);
+    limit number(2):= 10;
+begin
+    <<for_loop>>
+    for i in 0..limit loop
+        c := a+b;
+        dbms_output.put_line(c);    
+        a := b;
+        b := c;
+    end loop for_loop;
+end;
